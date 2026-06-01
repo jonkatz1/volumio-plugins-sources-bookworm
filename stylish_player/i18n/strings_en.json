@@ -122,6 +122,8 @@
   "ALBUM_ART_MAX_SPACE_DESC": "Only applicable to small desktop / tablet screens. When enabled, spans the album art across the full left panel and expands track info and controls to fill all available space.",
   "SHOW_TRACK_PANEL": "Show Track Info Panel",
   "SHOW_TRACK_PANEL_DESC": "Display a themed background and border behind the track info area.",
+  "USE_CUSTOM_LAYOUT": "Use Custom Layouts",
+  "USE_CUSTOM_LAYOUT_DESC": "When enabled, the player will use a saved custom layout for the current screen resolution if one exists.",
   "OPEN_APP": "Open App",
   "OPEN_APP_DESC": "Open the Stylish Player interface in a new tab.",
   "NONE": "None",

@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "albumArtAnimated", "showTrackPanel", "vizType", "spectrumOptions", "peppyMeterFolder", "peppyMeterModel", "peppySpectrumFolder", "peppySpectrumModel"]
+        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "albumArtAnimated", "showTrackPanel", "useCustomLayout", "vizType", "spectrumOptions", "peppyMeterFolder", "peppyMeterModel", "peppySpectrumFolder", "peppySpectrumModel"]
       },
       "content": [
         {
@@ -157,6 +157,13 @@
           "element": "switch",
           "label": "TRANSLATE.SHOW_TRACK_PANEL",
           "doc": "TRANSLATE.SHOW_TRACK_PANEL_DESC",
+          "value": false
+        },
+        {
+          "id": "useCustomLayout",
+          "element": "switch",
+          "label": "TRANSLATE.USE_CUSTOM_LAYOUT",
+          "doc": "TRANSLATE.USE_CUSTOM_LAYOUT_DESC",
           "value": false
         },
         {
@@ -604,6 +611,5 @@
       "label": "TRANSLATE.KIOSK",
       "icon": "fa-desktop"
     }
-
   ]
 }
