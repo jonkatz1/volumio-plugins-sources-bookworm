@@ -163,6 +163,14 @@
     "type": "string",
     "value": ""
   },
+  "playerButtonSize": {
+    "type": "string",
+    "value": ""
+  },
+  "secondaryRowFontSize": {
+    "type": "string",
+    "value": ""
+  },
   "externalUrl": {
     "type": "string",
     "value": ""

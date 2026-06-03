@@ -321,7 +321,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["titleFontSize", "albumFontSize", "artistFontSize", "bitrateFontSize", "progressFontSize", "volumeFontSize"]
+        "data": ["titleFontSize", "albumFontSize", "artistFontSize", "bitrateFontSize", "progressFontSize", "volumeFontSize", "playerButtonSize", "secondaryRowFontSize"]
       },
       "content": [
         {
@@ -370,6 +370,22 @@
           "element": "input",
           "label": "TRANSLATE.VOLUME_FONT_SIZE",
           "doc": "TRANSLATE.VOLUME_FONT_SIZE_DESC",
+          "value": ""
+        },
+        {
+          "id": "playerButtonSize",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.PLAYER_BUTTON_SIZE",
+          "doc": "TRANSLATE.PLAYER_BUTTON_SIZE_DESC",
+          "value": ""
+        },
+        {
+          "id": "secondaryRowFontSize",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.SECONDARY_ROW_FONT_SIZE",
+          "doc": "TRANSLATE.SECONDARY_ROW_FONT_SIZE_DESC",
           "value": ""
         }
       ]

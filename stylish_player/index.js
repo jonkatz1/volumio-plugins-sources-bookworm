@@ -985,6 +985,8 @@ ControllerStylishPlayer.prototype._buildConfigData = function () {
     bitrateFontSize: self.config.get("bitrateFontSize", ""),
     progressFontSize: self.config.get("progressFontSize", ""),
     volumeFontSize: self.config.get("volumeFontSize", ""),
+    playerButtonSize: self.config.get("playerButtonSize", ""),
+    secondaryRowFontSize: self.config.get("secondaryRowFontSize", ""),
     language: self.commandRouter.sharedVars.get("language_code") || 'en',
   };
 };
@@ -1144,6 +1146,8 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       field('section_fonts', 'bitrateFontSize').value  = self.config.get("bitrateFontSize", "");
       field('section_fonts', 'progressFontSize').value = self.config.get("progressFontSize", "");
       field('section_fonts', 'volumeFontSize').value   = self.config.get("volumeFontSize", "");
+      field('section_fonts', 'playerButtonSize').value         = self.config.get("playerButtonSize", "");
+      field('section_fonts', 'secondaryRowFontSize').value     = self.config.get("secondaryRowFontSize", "");
 
       // ── section_idle_screen ────────────────────────────────────────────
       setSelect('section_idle_screen', 'idleScreen', 'idleScreen', 'analogClock');
@@ -1393,7 +1397,7 @@ ControllerStylishPlayer.prototype.configSaveColors = function (data) {
 
 ControllerStylishPlayer.prototype.configSaveFonts = function (data) {
   var self = this;
-  var fields = ["titleFontSize", "albumFontSize", "artistFontSize", "bitrateFontSize", "progressFontSize", "volumeFontSize"];
+  var fields = ["titleFontSize", "albumFontSize", "artistFontSize", "bitrateFontSize", "progressFontSize", "volumeFontSize", "playerButtonSize", "secondaryRowFontSize"];
   //self.logger.info("Stylish Player: configSaveFonts called with data: " + JSON.stringify(data));
 
   for (var i = 0; i < fields.length; i++) {
