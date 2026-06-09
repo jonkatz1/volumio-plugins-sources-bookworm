@@ -303,8 +303,8 @@
           "id": "buttonColor",
           "type": "text",
           "element": "input",
-          "label": "TRANSLATE.CONTROL_COLOR",
-          "doc": "TRANSLATE.CONTROL_COLOR_DESC",
+          "label": "TRANSLATE.BUTTON_COLOR",
+          "doc": "TRANSLATE.BUTTON_COLOR_DESC",
           "value": ""
         },
         {
