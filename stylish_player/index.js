@@ -84,11 +84,49 @@ ControllerStylishPlayer.prototype.onVolumioStart = function () {
   return libQ.resolve();
 };
 
+// Config migration — ensures keys added in newer versions exist in the user's persisted config.
+// v-conf only seeds default values on a fresh install; existing installs keep the old config file.
+ControllerStylishPlayer.prototype._migrateConfig = function () {
+  var self = this;
+  var migrations = [
+    // v2.x: renamed controlColor → buttonColor; added buttonBgColor, barTrackColor, barTextColor, iconBtnColor
+    { key: 'buttonColor',   defaultVal: '' },
+    { key: 'buttonBgColor', defaultVal: '' },
+    { key: 'barTrackColor', defaultVal: '' },
+    { key: 'barTextColor',  defaultVal: '' },
+    { key: 'iconBtnColor',  defaultVal: '' },
+    // v2.x: added useCustomLayout
+    { key: 'useCustomLayout', defaultVal: false },
+  ];
+  for (var i = 0; i < migrations.length; i++) {
+    var m = migrations[i];
+    try {
+      var existing = self.config.get(m.key);
+      // v-conf returns undefined (or throws) when key is truly absent from the user's config file
+      if (existing === undefined || existing === null) {
+        self.config.set(m.key, m.defaultVal);
+        self.logger.info('Stylish Player _migrateConfig: initialised missing key "' + m.key + '"');
+      }
+    } catch (e) {
+      // Key didn't exist at all — set it now
+      try {
+        self.config.set(m.key, m.defaultVal);
+        self.logger.info('Stylish Player _migrateConfig: created missing key "' + m.key + '"');
+      } catch (e2) {
+        self.logger.error('Stylish Player _migrateConfig: failed to set "' + m.key + '": ' + e2);
+      }
+    }
+  }
+};
+
 ControllerStylishPlayer.prototype.onStart = function () {
   var self = this;
   var defer = libQ.defer();
 
-  // 0. Ensure persistent peppy data directory exists and migrate old data
+  // 0. Migrate config keys added in newer versions (v-conf only seeds keys on fresh install)
+  self._migrateConfig();
+
+  // 1. Ensure persistent peppy data directory exists and migrate old data
   self._ensurePeppyDataDir();
 
   // 1. Ensure FIFO exists BEFORE updating ALSA (which references it)
@@ -1423,6 +1461,7 @@ ControllerStylishPlayer.prototype.configSaveLayoutDesigner = function (data) {
 
 ControllerStylishPlayer.prototype.configSaveColors = function (data) {
   var self = this;
+  self.logger.info('Stylish Player configSaveColors received: ' + JSON.stringify(data));
   var hexPattern = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
   var fields = ["backgroundColor", "trackColor", "artistColor", "albumColor", "streamInfoColor", "buttonColor", "buttonBgColor", "barTrackColor", "barTextColor", "iconBtnColor"];
 
