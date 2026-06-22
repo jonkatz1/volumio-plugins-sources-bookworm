@@ -13,7 +13,7 @@
     "prettyName": "LitGUI",
     "plugin_type": "user_interface",
     "icon": "fa-paint-brush",
-    "architectures": ["armhf", "amd64", "arm64"],
+    "architectures": ["armhf", "amd64"],
     "os": ["bookworm"],
     "details": "A beautiful, audiophile-grade alternative UI for Volumio. Provides a polished playback, browse, and queue experience with high-quality album art, audio quality badges, and direct deep links into Volumio system pages.",
     "changelog": "Initial release"
